@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/db_append"
+}
+
+datasource db_append {
+  provider = env("DATABASE_PROVIDER_APPEND")
+  url      = env("DATABASE_URL_APPEND")
+}
+
+// Models
+model Image {
+  id        Int  @id @default(autoincrement())
+  url       String?
+}

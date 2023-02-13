@@ -1,11 +1,28 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/db"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+// Models
+model Comment {
+  id        Int  @id @default(autoincrement())
+  comment   String?
+  markers   Marker[]
+}
+
+model Marker {
+  id        Int     @id @default(autoincrement())
+  date      String
+  time      String
+  lat       Float?
+  lng       Float?
+  alt       Float?
+  comment     Comment? @relation(fields: [commentId], references: [id])
+  commentId   Int?
+  imageId   Int?
 }
