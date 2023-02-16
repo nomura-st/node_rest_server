@@ -7,3 +7,28 @@ npm install
 npx env-cmd -f config/dev.env   npx prisma db push --schema=./prisma/schema.prisma
 npx env-cmd -f config/dev.env   npx prisma db push --schema=./prisma/schema_append.prisma
 ```
+
+# Prisma vs TypeORM
+
+## TypeORM
+
+- DataSource API (v0.3.x)
+- config の仕様が未確定（公式情報少ない）
+  - Entity,Migration の Path 指定がうまくいかない
+- まだメジャーバージョンなしで、破壊的更新が入る（現時点でも v0.2 情報が使えない）
+- Migration で作られるのは TS or JS
+
+## Prisma
+
+- Model クラスの他に、Schema 定義をする必要がある（Model 肥大化を防げる？）
+  - Schema 定義で provider(DB 種類)が外だしできない
+    - テストの時だけ SQLite を使うには、専用の Client を作成しておく？
+- Migration で作られるのは SQL
+
+- UT/(Client UT 用疑似サーバ起動)
+  - schema を切り替え(SQLite), Client Generate (npx prisma db push)
+  - Migration はなし
+- IT/実運用環境
+  - .env を切り替え(URL ＝接続先)。基本的にずっと同じ
+  - Migration はあり
+  - reset もあり
