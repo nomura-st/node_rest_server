@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "db:init:debug": "tool\\npm-scripts\\db_init_debug.bat",
+    "db:init:dev": "tool\\npm-scripts\\db_init_develop.bat"
+  },
   "devDependencies": {
     "@types/node": "^18.13.0",
     "env-cmd": "^10.1.0",

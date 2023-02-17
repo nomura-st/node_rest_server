@@ -32,3 +32,19 @@ npx env-cmd -f config/dev.env   npx prisma db push --schema=./prisma/schema_appe
   - .env を切り替え(URL ＝接続先)。基本的にずっと同じ
   - Migration はあり
   - reset もあり
+
+### 方針
+
+- 開発環境の基本状態
+  - provider(DB 種類)は本番と同じ(=schema ファイルも同じ)
+  - 環境変数に応じて接続先を変更
+    - 環境変数は git 管理下の設定ファイル(.env)にて設定
+  - 本番適用用の Migration を作成
+- 本番環境
+
+  - 開発環境をそのまま使用するが、システムで環境変数を設定して接続先を変更
+
+- UT/その他必要に応じて
+  - DEBUG 環境変数などによって provider(DB 種類)を SQLite に変更
+  - 基本的に毎回初期化 reset
+  - データ取得処理がエラーにならないように

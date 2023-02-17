@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db_append {
-  provider = "sqlserver"
-  url      = env("DATABASE_URL_APPEND")
+  provider = "sqlite"
+  url      = "file:./dev_append.db"
 }
 
 // Models
