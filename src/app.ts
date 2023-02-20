@@ -1,23 +1,14 @@
-import { prisma, prismaAppend } from "./db/client";
+import express from "express";
+import { accessLog } from "./controller/common";
+import makerRouter from "./routes/marker";
+const app = express();
 
-(async () => {
-  {
-    const count = await prisma.marker.count();
-    console.log(`marker count=${count}`);
-    if (count > 0) {
-      const marker = await prisma.marker.findFirst({
-        where: { commentId: 1 },
-      });
-      console.log(`marker:${JSON.stringify(marker)}`);
-    }
-  }
+// 共通
+app.use(accessLog);
 
-  {
-    const count = await prismaAppend.image.count();
-    console.log(`image count=${count}`);
-    if (count > 0) {
-      const image = await prismaAppend.image.findFirst();
-      console.log(`image:${JSON.stringify(image)}`);
-    }
-  }
-})();
+// 各URL
+app.use("/marker", makerRouter);
+console.log("START!");
+
+// 待ち受け開始
+app.listen(3000);

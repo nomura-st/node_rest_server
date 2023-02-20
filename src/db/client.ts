@@ -14,8 +14,10 @@ if (strUtil.isTrue(process.env.DEBUG)) {
   console.log("デバッグ用DBで実行");
   // ※注意:接続先DBが違うだけで、DBのschemaは(それほど)変わらないという前提で型違いのエラーを無視
   // XXXX:DB固有の処理などがあると異常となりうる
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   cCLass1 = PrismaClient_DEBUG;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   cClass2 = PrismaClientAppend_DEBUG;
 }
