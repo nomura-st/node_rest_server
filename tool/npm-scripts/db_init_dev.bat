@@ -19,10 +19,10 @@ call npx prisma generate --schema=%ROOT_PATH%/schema_append.prisma
 
 REM デバッグ接続用のSQLite DB
 call npx cpx  %DATASOURCES_PATH%/base/dev/datasource.prisma %PARTS_PATH%/base/ignore/
-call npx prisma-import -s %PARTS_PATH%/base/**/*.prisma -o %ROOT_PATH%/schema.prisma -f
-call npx prisma db push --schema=%ROOT_PATH%/schema.prisma
+call npx prisma-import -s %PARTS_PATH%/base/**/*.prisma -o %ROOT_PATH%/dev/schema.prisma -f
+call npx prisma db push --schema=%ROOT_PATH%/dev/schema.prisma
 
 call npx cpx  %DATASOURCES_PATH%/append/dev/datasource.prisma %PARTS_PATH%/append/ignore/
-call npx prisma-import -s %PARTS_PATH%/append/**/*.prisma -o %ROOT_PATH%/schema_append.prisma -f
-call npx prisma db push --schema=%ROOT_PATH%/schema_append.prisma
+call npx prisma-import -s %PARTS_PATH%/append/**/*.prisma -o %ROOT_PATH%/dev/schema_append.prisma -f
+call npx prisma db push --schema=%ROOT_PATH%/dev/schema_append.prisma
 endlocal

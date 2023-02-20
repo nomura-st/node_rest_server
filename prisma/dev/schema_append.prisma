@@ -12,9 +12,9 @@ generator client {
   output   = "./generated/db_append"
 }
 
-datasource db_append {
-  provider = "sqlserver"
-  url      = env("DATABASE_URL_APPEND")
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev_append.db"
 }
 
 //

@@ -1,7 +1,7 @@
 {
   "scripts": {
     "check": "ts-node src/app.ts",
-    "check:dev": "set DEBUG=true && ts-node src/app.ts",
+    "check:dev": "cross-env DEBUG=true ts-node src/app.ts",
     "db:init:e2e": "tool\\npm-scripts\\db_init_e2e.bat",
     "db:init:dev": "tool\\npm-scripts\\db_init_dev.bat"
   },
