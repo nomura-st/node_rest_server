@@ -53,3 +53,26 @@ npx env-cmd -f config/dev.env   npx prisma db push --schema=./prisma/schema_appe
   - DEBUG 環境変数などによって provider(DB 種類)を SQLite に変更
   - 基本的に毎回初期化 reset
   - データ取得処理がエラーにならないように
+
+# Windows サービス化
+
+```
+https://github.com/coreybutler/node-windows#windows-services
+```
+
+1. Install
+
+```
+npm install node-windows
+npm link node-windows
+```
+
+※アプリを移動すると異常になりそう。global インストールすればよいらしい
+
+2. 登録
+
+`tool\reg_service.js` には app.js の絶対パスを指定
+
+```
+node tool\reg_service.js
+```
