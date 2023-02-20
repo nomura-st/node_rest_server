@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "tsc",
+    "lint": "eslint src --ext ts,tsx",
+    "build": "npm run lint && tsc",
     "start": "npm run build && node dist/app.js",
     "check": "ts-node src/app.ts",
     "check:dev": "cross-env DEBUG=true ts-node src/app.ts",
