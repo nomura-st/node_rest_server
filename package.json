@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "check:dev": "ts-node src/app.ts",
-    "check:debug": "set DEBUG=true && ts-node src/app.ts",
-    "db:init:debug": "tool\\npm-scripts\\db_init_debug.bat",
-    "db:init:dev": "tool\\npm-scripts\\db_init_develop.bat"
+    "check": "ts-node src/app.ts",
+    "check:dev": "set DEBUG=true && ts-node src/app.ts",
+    "db:init:e2e": "tool\\npm-scripts\\db_init_e2e.bat",
+    "db:init:dev": "tool\\npm-scripts\\db_init_dev.bat"
   },
   "devDependencies": {
     "@types/node": "^18.13.0",
