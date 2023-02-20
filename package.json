@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "check:dev": "ts-node src/app.ts",
+    "check:debug": "set DEBUG=true && ts-node src/app.ts",
     "db:init:debug": "tool\\npm-scripts\\db_init_debug.bat",
     "db:init:dev": "tool\\npm-scripts\\db_init_develop.bat"
   },

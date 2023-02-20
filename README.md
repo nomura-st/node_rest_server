@@ -29,9 +29,14 @@ npx env-cmd -f config/dev.env   npx prisma db push --schema=./prisma/schema_appe
   - schema を切り替え(SQLite), Client Generate (npx prisma db push)
   - Migration はなし
 - IT/実運用環境
+
   - .env を切り替え(URL ＝接続先)。基本的にずっと同じ
   - Migration はあり
   - reset もあり
+
+- コマンドごとの仕様
+  - client 生成(prisma generate) にサーバは必要ない
+  - 生成される client は provider(DB 種類)ごとに中身が異なるものになる
 
 ### 方針
 
