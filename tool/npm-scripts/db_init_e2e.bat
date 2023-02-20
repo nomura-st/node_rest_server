@@ -1,12 +1,14 @@
 REM @echo off
-REM package.json�Ɠ����t�H���_������s����邱�Ƃ�z�肵�Ă���
+REM UTF-8
+chcp 65001
+REM package.jsonと同じフォルダから実行されることを想定している
+REM callで実行しないとnpx実行終了後にbatも終了してしまう
 setlocal
-REM Docker�ɂ��DB�T�[�o�N��
+REM Docker起動
 call docker\start_docker.bat
 
-REM DB�T�[�o�ɃX�L�[�}�t�@�C������K�p
-REM call�Ŏ��s���Ȃ���npx���s�I�����bat���I�����Ă��܂�
-set SCHEMA_PATH=./prisma
-call npx prisma db push --schema=%SCHEMA_PATH%/schema.prisma
-call npx prisma db push --schema=%SCHEMA_PATH%/schema_append.prisma
+REM 接続先
+set ROOT_PATH=./prisma
+call npx prisma db push --schema=%ROOT_PATH%/schema.prisma
+call npx prisma db push --schema=%ROOT_PATH%/schema_append.prisma
 endlocal
