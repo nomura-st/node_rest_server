@@ -1,7 +1,9 @@
 import express from "express";
+// async関数のrouterでerror時のnext関数応答を自動で行う
 import "express-async-errors";
-import { initialize } from "./common/config";
+// 基本処理
 import { errorLog, accessLog } from "./controller/common";
+// router
 import markerRouter from "./routes/marker";
 
 const app = express();
@@ -15,8 +17,4 @@ app.use("/marker", markerRouter);
 // エラー
 app.use(errorLog);
 
-// 待ち受け開始
-app.listen(3000, () => {
-  // サーバ起動
-  initialize("./config");
-});
+export default app;
