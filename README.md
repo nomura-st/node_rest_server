@@ -30,7 +30,7 @@ npx env-cmd -f config/dev.env   npx prisma db push --schema=./prisma/schema_appe
   - Migration はなし
 - IT/実運用環境
 
-  - .env を切り替え(URL ＝接続先)。基本的にずっと同じ
+  - IT 環境＝.env を使用(URL ＝接続先)。実運用環境はシステム環境変数に定義。
   - Migration はあり
   - reset もあり
 
