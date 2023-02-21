@@ -5,8 +5,8 @@
     "start": "npm run build && node dist/app.js",
     "check": "ts-node src/app.ts",
     "check:dev": "cross-env DEBUG=true ts-node src/app.ts",
-    "db:init:e2e": "tool\\npm-scripts\\db_init_e2e.bat",
-    "db:init:dev": "tool\\npm-scripts\\db_init_dev.bat"
+    "db:init:e2e": "tool\\db_init_e2e.bat",
+    "db:init:dev": "tool\\db_init_dev.bat"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
