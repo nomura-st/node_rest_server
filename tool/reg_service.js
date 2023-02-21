@@ -3,9 +3,9 @@ var Service = require('node-windows').Service;
 
 // Create a new service object
 var svc = new Service({
-    name: '★REST_SERVER2',
+    name: '★REST_SERVER',
     description: 'Restサーバ.',
-    script: __dirname + '\\..\\dist\\app.js',
+    script: __dirname + '\\..\\dist\\server.js',
     nodeOptions: [
         '--harmony',
         '--max_old_space_size=4096'
@@ -29,5 +29,5 @@ svc.on('uninstall', function () {
 });
 
 // ******* 削除用(消す時はinstallをコメントアウトして、以下のコメントアウト外す) *******
-//   // Uninstall the service.
+// // Uninstall the service.
 // svc.uninstall();
