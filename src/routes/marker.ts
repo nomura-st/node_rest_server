@@ -1,5 +1,5 @@
 import express from "express";
-import { count } from "../controller/marker/count";
+import { count } from "../controller/marker/count.js";
 const router = express.Router();
 
 // routerに関わらず、アクセス日時を出力するミドルウェア

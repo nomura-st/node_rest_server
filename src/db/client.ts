@@ -1,9 +1,9 @@
-import { strUtil } from "../util";
-import { logger } from "../common/logger";
-import { PrismaClient } from "../../prisma/generated/db";
-import { PrismaClient as PrismaClientAppend } from "../../prisma/generated/db_append";
-import { PrismaClient as PrismaClient_DEBUG } from "../../prisma/dev/generated/db";
-import { PrismaClient as PrismaClientAppend_DEBUG } from "../../prisma/dev/generated/db_append";
+import { strUtil } from "../util/index.js";
+import { logger } from "../common/logger.js";
+import { PrismaClient } from "../../prisma/generated/db/index.js";
+import { PrismaClient as PrismaClientAppend } from "../../prisma/generated/db_append/index.js";
+import { PrismaClient as PrismaClient_DEBUG } from "../../prisma/dev/generated/db/index.js";
+import { PrismaClient as PrismaClientAppend_DEBUG } from "../../prisma/dev/generated/db_append/index.js";
 
 // デフォルト
 let cCLass1 = PrismaClient;

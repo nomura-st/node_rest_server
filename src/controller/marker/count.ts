@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { prisma } from "../../db/client";
+import { prisma } from "../../db/client.js";
 
 export const count: RequestHandler = async (req, res) => {
   const count = await prisma.marker.count();

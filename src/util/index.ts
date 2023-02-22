@@ -1,1 +1,1 @@
-export * as strUtil from "./strUtil";
+export * as strUtil from "./strUtil.js";
