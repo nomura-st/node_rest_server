@@ -1,4 +1,4 @@
-import { strUtil } from "../../src/util/index";
+import { strUtil } from "../../util/index.js";
 
 describe("strUtil isTrue", () => {
   // beforeAll(() => {});
