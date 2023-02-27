@@ -1,12 +1,11 @@
 import { Comment } from "./comment"
 
 model Marker {
-  id        Int      @id @default(autoincrement())
-  datetime  Int
-  lat       Float?
-  lng       Float?
-  alt       Float?
-  comment   Comment? @relation(fields: [commentId], references: [id])
-  commentId Int?
-  imageId   Int?
+  id       Int      @id @default(autoincrement())
+  datetime Int
+  lat      Float?
+  lng      Float?
+  alt      Float?
+  comment  Comment?
+  imageId  Int?
 }

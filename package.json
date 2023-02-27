@@ -5,7 +5,7 @@
     "lint": "eslint src --ext ts,tsx",
     "build": "npm run clean && npm run lint && tsc",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "start": "npm run build && npm run test && cross-env DEBUG=true node dist/server.js",
+    "start": "cross-env DEBUG=true node dist/server.js",
     "db:init:e2e": "tool\\db_init_e2e.bat",
     "db:init:dev": "tool\\db_init_dev.bat"
   },
@@ -34,6 +34,7 @@
     "@prisma/client": "^4.10.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "express-validator": "^6.15.0",
     "log4js": "^6.7.1",
     "node-windows": "^1.0.0-beta.8"
   }

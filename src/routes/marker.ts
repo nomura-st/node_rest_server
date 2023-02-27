@@ -1,14 +1,11 @@
 import express from "express";
+import { validate } from "../controller/common.js";
 import { count } from "../controller/marker/count.js";
+import { insert, insertChecks } from "../controller/marker/write.js";
 const router = express.Router();
 
-// routerに関わらず、アクセス日時を出力するミドルウェア
-router.use((req, res, next) => {
-  console.log(`MARKER COMMON`);
-  next();
-});
-
-// app.tsでこのrouterを設定したURL + /countに対して、コントローラを起動
+// app.tsでこのrouterを設定したURL + 以下のURLに対して、コントローラを起動
+router.post("/", validate(insertChecks), insert);
 router.get("/count", count);
 
 export default router;

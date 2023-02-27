@@ -9,6 +9,9 @@ import markerRouter from "./routes/marker.js";
 const app = express();
 
 // 共通
+// POST送信されたJSONデータを読み取る
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(accessLog);
 
 // 各URL

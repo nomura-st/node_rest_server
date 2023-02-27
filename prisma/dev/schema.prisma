@@ -22,9 +22,10 @@ datasource db {
 //
 
 model Comment {
-  id      Int      @id @default(autoincrement())
-  comment String?
-  markers Marker[]
+  id       Int     @id @default(autoincrement())
+  comment  String?
+  marker   Marker  @relation(fields: [markerId], references: [id])
+  markerId Int     @unique
 }
 
 //
@@ -32,12 +33,11 @@ model Comment {
 //
 
 model Marker {
-  id        Int      @id @default(autoincrement())
-  datetime  Int
-  lat       Float?
-  lng       Float?
-  alt       Float?
-  comment   Comment? @relation(fields: [commentId], references: [id])
-  commentId Int?
-  imageId   Int?
+  id       Int      @id @default(autoincrement())
+  datetime Int
+  lat      Float?
+  lng      Float?
+  alt      Float?
+  comment  Comment?
+  imageId  Int?
 }
