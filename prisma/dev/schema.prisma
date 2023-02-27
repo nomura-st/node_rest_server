@@ -33,8 +33,7 @@ model Comment {
 
 model Marker {
   id        Int      @id @default(autoincrement())
-  date      String
-  time      String
+  datetime  Int
   lat       Float?
   lng       Float?
   alt       Float?
