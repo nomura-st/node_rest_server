@@ -7,7 +7,7 @@ import { logger } from "../../common/logger.js";
 /**
  * 登録用バリデーションルール
  */
-export const insertChecks = [
+export const validations = [
   // 日付は必須
   check("datetime").isAlphanumeric().exists(),
   // 位置、またはコメントは必須
@@ -22,7 +22,7 @@ export const insertChecks = [
  * @param req
  * @param res
  */
-export const insert: RequestHandler = async (req, res) => {
+export const handler: RequestHandler = async (req, res) => {
   const request = matchedData(req) as Prisma.MarkerCreateInput;
 
   // 登録データ準備

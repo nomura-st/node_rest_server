@@ -8,7 +8,7 @@ import { MarkerSearch } from "types/data/marker.js";
 /**
  * 1件取得用バリデーションルール
  */
-export const selectOneChecks = [
+export const validations = [
   // IDは必須
   check("id").isAlphanumeric().exists(),
 ] as ValidationChain[];
@@ -18,7 +18,7 @@ export const selectOneChecks = [
  * @param req
  * @param res
  */
-export const selectOne: RequestHandler = async (req, res) => {
+export const handler: RequestHandler = async (req, res) => {
   const id = parseInt(req.params.id);
 
   // 検索

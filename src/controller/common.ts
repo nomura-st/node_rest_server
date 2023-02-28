@@ -14,12 +14,8 @@ import { ValidationChain, validationResult } from "express-validator";
 // 第4引数までないとエラーハンドラとして認識されない
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const errorLog: ErrorRequestHandler = async (err, req, res, next) => {
-  logger.error(err.stack);
-
-  // エラーステータスがない場合
-  if (err.status) res.status(err.status);
-  if (!res.statusCode) res.status(500);
-  res.json({ msg: err.message });
+  logger.error(`ERROR!(statusCode=${err.statusCode}) ${err.stack}`);
+  throw err;
 };
 
 /**
