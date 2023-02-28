@@ -24,5 +24,24 @@ if (strUtil.isTrue(process.env.DEBUG)) {
 }
 
 // シングルトンのインスタンスとなる
-export const prisma = new cCLass1();
-export const prismaAppend = new cClass2();
+export const prisma = new cCLass1({
+  log: [
+    {
+      emit: "event",
+      level: "query",
+    },
+  ],
+});
+export const prismaAppend = new cClass2({
+  log: [
+    {
+      emit: "event",
+      level: "query",
+    },
+  ],
+});
+
+// SQLログ出力設定
+prisma.$on("query", (e) => {
+  logger.debug(`Query: ${e.query} (Params: ${e.params})`);
+});

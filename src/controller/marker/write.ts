@@ -4,6 +4,9 @@ import { Prisma } from "../../../prisma/generated/db/index.js";
 import { prisma } from "../../db/client.js";
 import { logger } from "../../common/logger.js";
 
+/**
+ * 登録用バリデーションルール
+ */
 export const insertChecks = [
   // 日付は必須
   check("datetime").isAlphanumeric().exists(),
@@ -14,6 +17,11 @@ export const insertChecks = [
   ]),
 ] as ValidationChain[];
 
+/**
+ * 登録
+ * @param req
+ * @param res
+ */
 export const insert: RequestHandler = async (req, res) => {
   const request = matchedData(req) as Prisma.MarkerCreateInput;
 
