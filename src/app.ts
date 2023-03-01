@@ -1,3 +1,8 @@
+import path from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 import express from "express";
 // async関数のrouterでerror時のnext関数応答を自動で行う
 import "express-async-errors";
@@ -11,6 +16,9 @@ import * as write from "./controller/marker/write.js";
 const app = express();
 
 // 共通
+// 静的ファイル(publicフォルダ配下を http://xxxx/public/.... として公開する)
+app.use("/public", express.static(__dirname + "/../public"));
+
 // POST送信されたJSONデータを読み取る
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
