@@ -20,5 +20,6 @@ export default {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
+    '!src/app.ts',
   ],
 }
