@@ -1,6 +1,6 @@
 import { jest } from "@jest/globals";
 import { prismaMock } from "../../prismaMock.js";
-import { count } from "../../../controller/marker/count.js";
+import { handler } from "../../../controller/marker/count.js";
 
 describe("/marker/count", () => {
   test("count正しいカウントが返ってくること", async () => {
@@ -17,7 +17,7 @@ describe("/marker/count", () => {
 
     // テスト対象実行
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    await count({} as any, response as any, null as any);
+    await handler({} as any, response as any, null as any);
 
     // 確認
     expect(mockFunction.mock.calls.length).toBe(1); // mockFunction関数は1度呼び出された
