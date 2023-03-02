@@ -17,7 +17,8 @@ const app = express();
 
 // 共通
 // 静的ファイル(publicフォルダ配下を http://xxxx/public/.... として公開する)
-app.use("/public", express.static(__dirname + "/../public"));
+app.use("/", express.static(__dirname + "/../frontend"));
+app.use("/", express.static(__dirname + "/../public"));
 
 // POST送信されたJSONデータを読み取る
 app.use(express.json());
