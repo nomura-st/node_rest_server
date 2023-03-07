@@ -2,7 +2,7 @@ import { Comment } from "./comment"
 
 model Marker {
   id       Int      @id @default(autoincrement())
-  datetime Int
+  datetime DateTime
   lat      Float?
   lng      Float?
   alt      Float?
