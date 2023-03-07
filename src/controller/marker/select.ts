@@ -88,7 +88,6 @@ export const searchMany: RequestHandler = async (req, res) => {
   });
 
   // 後処理
-  const resultJSON = JSON.stringify(found);
-  logger.debug(`Marker found (${resultJSON})`);
+  logger.debug(`Marker found (${JSON.stringify(found)})`);
   res.json(found);
 };

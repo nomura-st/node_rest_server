@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-import express from "express";
+import express, { RequestHandler } from "express";
 // async関数のrouterでerror時のnext関数応答を自動で行う
 import "express-async-errors";
 // 基本処理
@@ -16,6 +16,25 @@ import * as write from "./controller/marker/write.js";
 const app = express();
 
 // 共通
+// CORS
+const allowCrossDomain: RequestHandler = function (req, res, next) {
+  // TODO: 許容Originは設定ファイル化する
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, access_token"
+  );
+
+  // intercept OPTIONS method
+  if ("OPTIONS" === req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
+};
+app.use(allowCrossDomain);
+
 // 静的ファイル(publicフォルダ配下を http://xxxx/public/.... として公開する)
 app.use("/", express.static(__dirname + "/../frontend"));
 app.use("/", express.static(__dirname + "/../public"));

@@ -45,7 +45,6 @@ export const handler: RequestHandler = async (req, res) => {
   const created = await prisma.marker.create(createInput);
 
   // 後処理
-  const createdJSON = JSON.stringify(created);
-  logger.debug(`Marker created (${createdJSON})`);
-  res.json(createdJSON);
+  logger.debug(`Marker created (${JSON.stringify(created)})`);
+  res.json(created);
 };
